@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+        #tabs{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+ 
+	  <select id="sel" onchange="myoption()">
+		<option onclick="">Pear</option><br>
+		<option onclick="">Bob</option><br>
+		<option onclick="">Ball</option><br>
+		<option onclick="">Blue</option>
+	 </select>
+
+
+      <input type="radio" name="user" value="newUser" onchange="radio()">New User
+      <input type="radio" name="user" value="registeredUser" onchange="radio()">Registered User<br><br><br>
+
+
+     <div>
+       <input type="checkbox" name="box" value="green">green<br>
+       <input type="checkbox" name="box" value="blue">blue<br>
+       <input type="checkbox" name="box" value="white">white<br>
+       <input type="button" name="sbmt" onclick="check();return false">try it
+     </div>
+
+   
+     <div>
+   	   <input type="text" name="text" id="tex" value="" onkeyup="text()">
+       <input type="text" name="text" id="tex1" value="">
+   	   <p id="text1"></p>
+     </div>
+
+   
+
+
+     <div id="tabs">
+        <h1><b>This is veri important information</h1>
+     </div>
+     <div id="parkList">
+       <h1><int>This is not so important information</h1>
+     </div>
+
+     <input type="submit" value="Hide and show" onclick="return change(this);"/>
+	 
+
+
+  <script>
+    function myoption()//selectbox
+    {
+  	         var selectelem=document.getElementById("sel");
+  	         var optionelem=selectelem.options[selectelem.selectedIndex].text;
+              alert(optionelem);
+    }
+   function radio()//radiobutton
+   {
+       var users = document.getElementsByName('user');
+       var user_value = document.getElementsByName('user').value;
+         for(var i = 0; i < users.length; i++){
+         if(users[i].checked){
+         user_value = users[i].value;
+          }
+         }alert(user_value);
+    }
+   function check()//checkbox
+   {
+	 var selem = document.getElementsByName("box");
+	 var str="";
+	  for(var i=0; i<selem.length; i++){
+		if( selem[i].checked === true){
+			str=str+selem[i].value+ ' ';
+		}
+	   }alert(str);
+    }
+   function text()//inout text
+   {
+	 var text1=document.getElementById("tex").value;
+	 document.getElementById("tex1").value = text1;
+	 
+   }
+
+   function change()//hide show
+    {
+     if (document.getElementById('tabs')) {
+        if (document.getElementById('tabs').style.display == 'none') {
+        document.getElementById('tabs').style.display = 'block';
+        document.getElementById('parkList').style.display = 'none';}
+        else {
+        document.getElementById('tabs').style.display = 'none';
+        document.getElementById('parkList').style.display = 'block';}
+       }
+     }
+
+  </script>
+</body>
+
+</html>
