@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta>
+<title>Executing a Function on Double-click Event in jQuery</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+    p{
+        padding: 20px;
+        font: 20px sans-serif;
+        background:red;
+    }
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("p.go").click(function(){
+        $(this).slideUp();
+    });
+});
+</script>
+</head>
+<body>
+    <p class="go">click on me and I'll disappear.</p>
+    <p class="go">click on me and I'll disappear.</p>
+    <p class="go">click on me and I'll disappear.</p>
+    <p> But I will syay</p> 
+</body>
+</html>  
