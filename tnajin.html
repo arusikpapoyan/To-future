@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<title>
+		
+	</title>
+</head>
+<body>
+	<div ng-app="sona" ng-controller="myCtrl">
+		<form>
+			<h2>Երդում</h2>
+		<h3>Ամենաթանկ բանը?</h3>
+		<input type="text" ng-model="npatak">
+		<h3>Ինչից եք վախենում?</h3>
+		<input type="text" ng-model="aknkaliq">
+	
+
+         <h3>Ընտրեք Ձեր անունը</h3>
+		<select ng-model="unun" ng-option="x for x in names"></select><br><br>
+		<h3>Ընտրեք Ձեր ազգանունը</h3>
+        <select ng-model="azganun" ng-option="y for y in surname"></select><br><br>
+<h3>Որ կողմ կգնաք?</h3>
+Ձախ <input type="checkbox" ng-model="myCheckbox" ng-true-value="'երազ'">
+Աջ   <input type="checkbox" ng-model="myCheckbox" ng-true-value="'իրականություն'">
+
+<h3>Մի փոքր կախարդանք</h3>
+      <input type="radio"  ng-model="myRadio" value="mail" ng-click="showHide=true">Կա
+      <input type="radio"  ng-model="myRadio" value="mail" ng-click="showHide=false">Չկա
+
+      <div ng-show="showHide" ng-model="showHide">Email: <input type="email" ng-model="myMail"></div><br><br><br>
+
+
+
+<button ng-click="zhasmin()">push</button>
+
+</form>
+	<div>{{formData}}</div>	
+	</div>
+
+	
+	<script>
+		var app = angular.module('sona',[]);
+		app.controller('myCtrl',function($scope)
+		{
+	$scope.formData = '';
+	$scope.showHide=false;		
+	$scope.names=["Արմենուհի","Սերինե","Արուսիկ","Ասյա",
+		        "Գայանե","Հռիփսիմե","Վալյա","Նազիկ",	
+                "Արփինե", "Սուրեն","Լիլիթ","Խաչատրյան"];
+
+    $scope.surname = ["Թորոյան" ,"Սարգսյան","Պապոյան","Ավագյան","Հովհաննիսյան","Թորոսյան","Տերտերյան","Ինջյան","Մաթևոսյան","Ավետիսյան","Խաչատրյան"]
+        
+		 
+		 $scope.zhasmin=function(){
+		 	 $scope.formData= "Ես"+$scope.unun+""+$scope.azganun+"ս  հանդիսավոր կերպով երդվում եմ: Անձնվիրաբար սովորել , չխնայել"+" "+ $scope.npatak + "ս  "+  "  և եթե դրժեմ երդումս թող արժանանամ Ղարիբյանի զայրույթին և "+ $scope.aknkaliq+"ը:"+" "+"Կբացեմ աչքերս ու այս ամենը կլինի " +$scope.myCheckbox;+ ":";
+		 };
+
+		 });
+
+</script>	
+	
+ 	
+	
+
+</body>
+</html>
